@@ -1,5 +1,12 @@
 # dev-say
 
+## Installation
+```
+npm i dev-say
+```
+
+## About dev-say
+
 Outputs objects in a lucid maner:
 
 ```
