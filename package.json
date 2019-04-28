@@ -1,0 +1,24 @@
+{
+  "name": "dev-say",
+  "version": "0.0.1",
+  "description": "Browser debugging tools for the console",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claes-magnus/dev-say.git"
+  },
+  "keywords": [
+    "browser",
+    "console",
+    "debugging"
+  ],
+  "author": "Claes-Magnus Bernson <cmbernson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claes-magnus/dev-say/issues"
+  },
+  "homepage": "https://github.com/claes-magnus/dev-say#readme"
+}

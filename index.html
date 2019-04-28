@@ -1,14 +1,29 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8"> 
     <title>
       Console Experiments.
     </title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <script src="index.js"></script>
   </head>
   <body>
-    <script src="index.js"></script>
+    <script>
+      const obj1 = {
+        keyA: 1,
+        keyB: {
+          keyC: {
+            keyD: [2,2,3, 'Hello, there', { keyE: 'END.' }]
+          }
+        }
+      };
+      console.log_obj(obj1);
+      // console.set_default_logstyle('font-size: 30px;')
+      console.log('hell');
+      console.log("ddd");
+    </script>
   </body>
 </html>
 
