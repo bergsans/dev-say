@@ -76,32 +76,19 @@ const someObject = {
      }
    }
  };
- const objectWithTypes = {
-   thisIsABool: true,
-   thisIsAFunction: () => {
-     console.log('...');
-   },
-   thisIsASymbol: Symbol(),
-   thisIsAUndefined: undefined,
-   thisIsANull: null,
-   thisIsAString: 'Hello, dev-say!',
-   thisIsANumber: 0
- };
- //Object.keys(objectWithTypes).forEach((key) => console.log(typeof objectWithTypes[key]));
-
-
  console.log('Default behaviour of console-methods follows.');
  console.log('console.log:');
  console.log(someObject);
  console.log('console.dir:');
  console.dir(someObject);
 
+
  const tryDevSayBtn = document.querySelector('#try-dev-say');
  tryDevSayBtn.addEventListener('click', () => {
    console.clear();
    console.log_obj(someObject);
    console.log('DEFAULT console.log: Hello, I\'m not dev-say.');
-   console.set_default_logstyle('font-size: 30px;');
+  // console.set_default_logstyle('font-size: 30px;');
    console.log('Hello, I\'m dev-say.');
    console.log_obj_tree(someObject);
    console.log_obj_tree(objectWithTypes);
