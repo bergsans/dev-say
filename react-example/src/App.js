@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { console } from './lib';
+import { console } from 'dev-say';
 
 import './normalize.css';
 import './skeleton.css';
