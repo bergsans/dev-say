@@ -4,13 +4,11 @@ console.set_default_logstyle = function(styles = '') {
   console.log = (...args) => args.forEach((arg) => log(`%c ${arg}`, styles));
 }
 
-
 const longestStrInArr = (arr) => {
     let deepCopy = [...arr];
     const sortedArr = deepCopy.sort((a, b) => b.length - a.length);
     return sortedArr[0].length;
 };
-
 
 console.log_obj = function(obj) {
 
@@ -28,27 +26,43 @@ console.log_obj = function(obj) {
 };
 
 
-
-
-
-console.log_obj_tree = function(objectToLoop, level = 0, representation = []) {
-
+console.log_obj_tree = function(objectToLoop, level = 0) {
+  console.set_default_logstyle('font-size: 16px;');
   for (let key in objectToLoop) {
-    if (!Array.isArray(objectToLoop[key]) 
-        && typeof objectToLoop[key] == 'object' 
-        && objectToLoop[key] !== null
-        ) {
-      representation.push({step: level, name: key, type: 'object', value: 'PARENT NODE'});    
-      console.log_obj_tree(objectToLoop[key], level + 1, representation);
+    if (!Array.isArray(objectToLoop[key])
+        && typeof objectToLoop[key] == 'object'
+
+      ) { // && objectToLoop[key] !== null
+      output(key, typeof objectToLoop[key], level);
+      console.log_obj_tree(objectToLoop[key], level + 1);
     } else if(Array.isArray(objectToLoop[key])) {
-      representation.push({step: level, name: key,type: 'array', value: 'PARENT NODE'});
-      console.log_obj_tree(objectToLoop[key], level + 1, representation);
-    } else {
-      representation.push({step: level, name: key,type: 'primitive value', value: objectToLoop[key]});
+      output(key, typeof objectToLoop[key], level);
+      console.log_obj_tree(objectToLoop[key], level + 1);
+    } else if(typeof objectToLoop[key] === 'string') {
+      /*
+      let output =  level > 0? `${'   '.repeat(level)}+--` : '';
+      output += `+ [${key}]: ${objectToLoop[key]} <string>`;
+      console.log(output);
+      */
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(typeof objectToLoop[key] === 'number') {
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(typeof objectToLoop[key] === 'undefined') {
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(objectToLoop[key] === 'null') {
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(typeof objectToLoop[key] === 'function') {
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(typeof objectToLoop[key] === 'boolean') {
+      output(key, typeof objectToLoop[key], level, objectToLoop[key]);
+    } else if(typeof objectToLoop[key] === 'symbol') {
+      output(key, typeof objectToLoop[key], level, 'Symbol value');
     }
   }
-  return representation;
 }
 
-
-
+function output(key, type, level, value = '') {
+  let output = level > 0? `${'   '.repeat(level)}+--` : '';
+  output += `+ [${key}]: ${value} <${type}>`;
+  console.log(output);
+}

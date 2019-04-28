@@ -1,10 +1,7 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8"> 
-    <title>
-      Console Experiments.
-    </title>
+<meta charset="UTF-8"></meta>
+
+<title>Console Experiments.</title>
+
 <meta
   name="viewport"
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -24,54 +21,90 @@
   href="skeleton.css"
   rel="stylesheet">
 </link>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <h3 style="text-align: center; margin-top: 25px;">
-          <span style="color: blue;">dey-say</span>. A browser console debugging library
-        </h3>
-      </div>
 
-      <div class="row" style="margin-top: 25px;">
-        <div
-          class="twelve columns"
-          >
-        <pre>
-          <code>
-     const obj1 = {
-        keyA: 1,
-        keyB: {
-          keyC: {
-            keyD: [2,2,3, 'Hello, there', { keyE: 'END.' }]
-          }
-        }
-      };
-      console.log_obj(obj1);
-      console.set_default_logstyle('font-size: 20px;')
-      console.log('Hello, I\'m dev-say.');
-          </code>
-        </pre>
-        </div>
-      </div>
+<meta
+  name="description"
+  content>
+</meta>
+
+<meta
+  name="keywords"
+  content>
+</meta>
+
+<script src="index.js"></script>
+
+<div class="container">
+  <div class="row">
+    <h3 style="text-align: center; margin-top: 25px;">
+      <span style="color: blue;">dey-say</span>
+
+      . A browser console debugging library
+    </h3>
   </div>
 
-  <script>
-      const obj1 = {
-        keyA: 1,
-        keyB: {
-          keyC: {
-            keyD: [2,2,3, 'Hello, there', { keyE: 'END.' }]
-          }
-        }
-      };
-      console.log_obj(obj1);
-      console.set_default_logstyle('font-size: 30px;')
-      console.log('Hello, I\'m dev-say.');
-  </script>
-  </body>
-</html>
+  <div
+    class="row"
+    style="margin-top: 25px;">
+    <div class="twelve columns">
+      <pre><code>
+        const someObject = {
+           keyA: 1,
+           keyB: {
+             keyC: {
+               keyD: [2,2,3, 'Hello, there', { keyE: 'END.' }]
+             }
+           }
+         };
+         console.log_obj(someObject);
+         console.log('DEFAULT console.log: Hello, I\'m not dev-say.');
+         console.set_default_logstyle('font-size: 30px;');
+         console.log('Hello, I\'m dev-say.');
+         console.log_obj_tree(someObject);
+      </code></pre>
+      <input class="button-primary" type="submit" value="Try dev-say" id="try-dev-say">
+    </div>
+  </div>
+</div>
 
+<script>
+const someObject = {
+   keyA: 1,
+   keyB: {
+     keyC: {
+       keyD: [2,2,3, 'Hello, there', { keyE: 'END.' }]
+     }
+   }
+ };
+ const objectWithTypes = {
+   thisIsABool: true,
+   thisIsAFunction: () => {
+     console.log('...');
+   },
+   thisIsASymbol: Symbol(),
+   thisIsAUndefined: undefined,
+   thisIsANull: null,
+   thisIsAString: 'Hello, dev-say!',
+   thisIsANumber: 0
+ };
+ //Object.keys(objectWithTypes).forEach((key) => console.log(typeof objectWithTypes[key]));
+
+
+ console.log('Default behaviour of console-methods follows.');
+ console.log('console.log:');
+ console.log(someObject);
+ console.log('console.dir:');
+ console.dir(someObject);
+
+ const tryDevSayBtn = document.querySelector('#try-dev-say');
+ tryDevSayBtn.addEventListener('click', () => {
+   console.clear();
+   console.log_obj(someObject);
+   console.log('DEFAULT console.log: Hello, I\'m not dev-say.');
+   console.set_default_logstyle('font-size: 30px;');
+   console.log('Hello, I\'m dev-say.');
+   console.log_obj_tree(someObject);
+   console.log_obj_tree(objectWithTypes);
+ });
+
+</script>
