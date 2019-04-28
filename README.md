@@ -15,4 +15,4 @@ const someObject = {
 	}
 };
 ```
-![screenshot]()
+![screenshot](https://github.com/claes-magnus/dev-say/blob/master/screenshot.png)
