@@ -73,3 +73,5 @@ function output(key, type, level, value = '') {
   const output = `${prefix}+ %c[${key}]: %c${value} %c<${type}>`;
   console.log(output, 'color: gray; font-size: 14px;', 'font-size: 14px; color: black;', value? 'color: green; font-size: 14px;' : 'font-size: 14px;', suffix);
 }
+
+module.exports = { console };
