@@ -1,8 +1,13 @@
 # dev-say
 
+This library helps you to debug JavaScript objects. It does not replace
+the console.log nor the console.dir, but compliments them by outputting objects
+in a more lucid manner.
+
 ## Installation
+
 ```
-npm i dev-say
+npm i dev-say --save-dev
 ```
 
 ## About dev-say
